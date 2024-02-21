@@ -74,3 +74,45 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+
+/********Photographer Card Index********/
+
+.photographer-index-card{
+    text-align: center;
+    & *{
+        margin:0;
+    }
+    & a{
+        text-decoration: none;
+        & h2{
+            font-weight:500;
+            margin-top: 20px;
+        }
+    }
+}
+
+.photographer-index-card-sub-text{
+    & h3{
+        color:#901C1C;
+        font-weight: 500;
+        font-size: 13px;
+    }
+    & p {
+        font-size:10px;
+    } 
+}
+
+.small-price{
+    color: #757575;
+    font-size: 9px;
+    font-weight: 400;
+}
+
+.round-photographer-picture{
+    object-fit: cover;
+    border-radius:50%;
+    box-shadow: 0 0 20px rgb(0,0,0,0.15);
+}
+
+/********Photographer Card Index********/

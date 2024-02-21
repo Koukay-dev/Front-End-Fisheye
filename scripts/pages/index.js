@@ -11,7 +11,7 @@
             
             photographersData.forEach((data => {
                 let photographer = new Photographer(data)
-                let photographerCard = new PhotographerCard(photographer).createPhotographerCard()
+                let photographerCard = new PhotographerCard(photographer).createPhotographerIndexCard()
                 this.photographersSection.appendChild(photographerCard)
             }));
         }

@@ -9,7 +9,6 @@ class Photographer
         this._city = photographer.city
         this._tagline = photographer.tagline
         this._price = photographer.price
-        console.log(this)
     }
     
     get name(){
