@@ -3,8 +3,6 @@ class PhotographerCard
 {
     constructor(photographer){
         this._photographer = photographer
-
-        this.wrapper = document.createElement('article')
     }
 
     get photographer(){
@@ -12,6 +10,7 @@ class PhotographerCard
     }
 
     createPhotographerIndexCard(){
+        const wrapper = document.createElement('article')
 
         const photographerCard =`
         <a class='photographer-card' href='./photographer.html?id=${this.photographer.id}'>
@@ -24,14 +23,14 @@ class PhotographerCard
           <p class='small-price'>${this.photographer.price}</p>
         </div>
         `
-        this.wrapper.classList.add('photographer-index-card');
-        this.wrapper.innerHTML = photographerCard
+        wrapper.classList.add('photographer-index-card');
+        wrapper.innerHTML = photographerCard
  
-        return this.wrapper
+        return wrapper
     } 
 
     roundPicture(){
-        return `<img class='round-photographer-picture' src="${this.photographer.portrait}" alt="Portrait du photographe ${this.photographer.name}">`
+        return `<img class='round-photographer-picture' width=200 height=200  src="${this.photographer.portrait}" alt="Portrait du photographe ${this.photographer.name}">`
     }
 
     smallRoundPicture(){
@@ -40,25 +39,25 @@ class PhotographerCard
 
     infoPhotograph(){
         return `
-        <div class='big-info-card'>
+        <div class='photographer-profile'>
             <h2>${this.photographer.name}</h2>
-            <h3>${this.photographer.city}</h3>
+            <h3>${this.photographer.city}, ${this.photographer.country}</h3>
             <p>${this.photographer.tagline}</p>
         </div>
         `
     }
 
     bannerPhotograph(){
+        const wrapper = document.createElement('div')
+        wrapper.classList.add('photograph-header')
+
         const bannerPhotograph = `
-        <div class="photograph-header">
             ${this.infoPhotograph()}
             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
             ${this.roundPicture()}
-        </div>
         `
-        this.wrapper.innerHTML = bannerPhotograph
- 
-        return this.wrapper
+        wrapper.innerHTML = bannerPhotograph
+        return wrapper
 
     }
 

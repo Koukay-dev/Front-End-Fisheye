@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="..">
-      <img src="assets/images/logo.png" class="logo" />
-      </a>
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+    <head>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
+        <link
+            href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+            rel="stylesheet"
+        />
+        <title>Fisheye - photographe</title>
+    </head>
+    <body>
+        <header>
+            <a href="..">
+                <img src="assets/images/logo.png" class="logo" />
+            </a>
         </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
-  </body>
+        <main id="main">
+            <section id="banner-photographer"></section>
+            <div class="sort-picture-container">
+                <label for="sort-picture">Trier par</label>
+                <select name="sort-picture" id="sort-picture">
+                    <option value="popularity">Popularité</option>
+                    <option value="date">Date</option>
+                    <option value="title">Titre</option>
+                </select>
+            </div>
+            <section id="medias-thumbnail"></section>
+        </main>
+        <div id="contact_modal">
+            <div class="modal">
+                <header>
+                    <h2>Contactez-moi</h2>
+                    <img src="assets/icons/close.svg" onclick="closeModal()" />
+                </header>
+                <form>
+                    <div>
+                        <label for="firstname">Prénom</label>
+                        <input type="text" name="firstname" />
+                    </div>
+                    <button class="contact_button">Envoyer</button>
+                </form>
+            </div>
+        </div>
+        <!--API-->
+        <script src="scripts/api/API.js"></script>
+        <!-- Factory -->
+        <script src="scripts/factory/MediaTypeFactory.js"></script>
+        <!--models-->
+        <script src="scripts/models/Photographers.js"></script>
+        <script src="scripts/models/Media.js"></script>
+        <!-- Template -->
+        <script src="scripts/templates/PhotographerCard.js"></script>
+        <script src="scripts/templates/MediaCard.js"></script>
+
+        <script src="/scripts/pages/photographer.js"></script>
+        <script src="/scripts/utils/contactForm.js"></script>
+    </body>
 </html>
