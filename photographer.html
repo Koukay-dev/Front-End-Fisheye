@@ -31,15 +31,24 @@
         <div id="contact_modal">
             <div class="modal">
                 <header>
-                    <h2>Contactez-moi</h2>
+                    <h2 id="contact-title">Contactez-moi</h2>
                     <img src="assets/icons/close.svg" onclick="closeModal()" />
                 </header>
-                <form>
+
+                <form id="contact-form">
                     <div>
                         <label for="firstname">Prénom</label>
                         <input type="text" name="firstname" />
+                        <label for="firstname">Nom</label>
+                        <input type="text" name="lastname" />
+                        <label for="email">Email</label>
+                        <input type="email" name="email" />
+                        <label for="message">Votre message</label>
+                        <textarea name="message" cols="30" rows="10"></textarea>
                     </div>
-                    <button class="contact_button">Envoyer</button>
+                    <button type="submit" class="contact_button">
+                        Envoyer
+                    </button>
                 </form>
             </div>
         </div>
