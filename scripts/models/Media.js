@@ -1,7 +1,7 @@
 
 class Media
 {
-    constructor(media, photographerName){
+    constructor(media, photographerName, myIndex, MediasList){
         this._photographerName = photographerName
         this._id = media.id
         this._photographerId = media.photographerId
@@ -14,6 +14,9 @@ class Media
         this._likes = media.likes
         this._date = media.date
         this._price = media.price
+
+        this._myIndex = myIndex
+        this._MediasList = MediasList
     }
 
     get photographerId(){

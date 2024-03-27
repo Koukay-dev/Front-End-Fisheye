@@ -16,18 +16,22 @@ class PhotographerApp {
         const photographerData = (await this.photographersApi.getPhotographs()).find(photograph => photograph.id == this.id);
         const photographerMedias = (await this.photographersApi.getMedia()).filter(media => media.photographerId == this.id);
         
-        
         let photographer = new Photographer(photographerData)
         let bannerPhotograph = new PhotographerCard(photographer).bannerPhotograph()
         this.sectionBannerPhotographer.appendChild(bannerPhotograph)
 
-        this.contactTitle.innerHTML += ` ${photographer.name}<br>`
+        this.contactTitle.innerHTML += ` ${photographer.name}<br>` //modale contact
 
-        photographerMedias.forEach(elem => {
-            let media = new Media(elem, photographer.name)
+        const lightbox = new LightBox()
+
+        photographerMedias.forEach((elem, index)=> {
+            let media = new Media(elem, photographer.name, index, photographerMedias)
             let mediaThumbnail = new MediaCard(media).createThumbnail()
+            lightbox.addMedia(media)
             this.sectionMedias.appendChild(mediaThumbnail)
         });
+
+        lightbox.init()
     }
 }
 

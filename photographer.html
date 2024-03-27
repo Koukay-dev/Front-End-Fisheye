@@ -52,6 +52,16 @@
                 </form>
             </div>
         </div>
+        <div id="lightbox-modal">
+            
+            <section id="lightbox-main">
+                <img src="assets/icons/close-red.svg" id="lightbox-close-button"/>
+                <img id="lightbox-picture" src="">
+                <h3 id='lightbox-picture-title'></h3>
+                <img id="right-arrow" class='arrow'src="assets/icons/arrow.svg" alt="">
+                <img id="left-arrow" class="arrow" src="assets/icons/arrow.svg"  alt="">
+            </section>
+        </div>
         <!--API-->
         <script src="scripts/api/API.js"></script>
         <!-- Factory -->
@@ -62,8 +72,11 @@
         <!-- Template -->
         <script src="scripts/templates/PhotographerCard.js"></script>
         <script src="scripts/templates/MediaCard.js"></script>
+        <script src="scripts/templates/LightBox.js"></script>
 
+        <!-- Utils -->
         <script src="/scripts/pages/photographer.js"></script>
         <script src="/scripts/utils/contactForm.js"></script>
+        <script src="/scripts/utils/likeHandler.js"></script>
     </body>
 </html>

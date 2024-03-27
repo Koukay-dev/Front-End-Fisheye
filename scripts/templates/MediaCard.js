@@ -21,6 +21,7 @@ class MediaCard {
         </div>
         `
         wrapper.classList.add('picture-card');
+        wrapper.setAttribute('data-id', this.media.id);
         wrapper.innerHTML = pictureCard
  
         return wrapper
@@ -45,7 +46,7 @@ class MediaCard {
 
     _likesDom(){
         return `
-        <div class='likes'>
+        <div class='likes' onclick='handleLike(this)' data-liked='false'>
             <span>${this._media.likes}</span>
             <img src="assets/icons/like-heart.svg" alt="icone en forme de coeur pour les likes">
         </div>
