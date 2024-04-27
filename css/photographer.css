@@ -45,6 +45,11 @@
     background-color: #901c1c;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+        color: #000;
+        background-color: #db8876;
+    }
 }
 
 /* Modale Contact */
@@ -168,25 +173,62 @@ form input {
         margin-right: 25px;
     }
 }
+.sort {
+    max-width: 170px;
+    width: 100%;
+    border-radius: 5px;
+    background: #901c1c;
+    color: white;
+    text-align: left;
+}
+
 #sort-picture {
     max-width: 170px;
     width: 100%;
     border-radius: 5px;
     background: #901c1c;
     color: white;
-    text-align: center;
     font-size: 18px;
     font-weight: 700;
     border: none;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.5);
     cursor: pointer;
-    padding: 10px;
-    & li{
+    padding: 10px 0;
+    & li {
+        padding-block: 14px;
+        padding-inline: 20px;
+
+        & .sort-picture-elem {
+            color: inherit;
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+    & ul {
         display: none;
+        background: #901c1c;
+        list-style-type: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0;
+        & > :nth-child(1) {
+            border-top: solid 2px white;
+            border-bottom: solid 2px white;
+        }
     }
-    & .sort-selected{
-        display:block !important;
+    &:hover ul {
+        display: block;
     }
+}
+#sort-picture-selected {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+}
+
+.sort-open ul {
 }
 
 #medias-thumbnail {
@@ -228,7 +270,7 @@ form input {
     & span {
         font-size: 24px;
         font-weight: 500;
-        color: #901c1c;   
+        color: #901c1c;
     }
 }
 /* Medias Thumbnails */

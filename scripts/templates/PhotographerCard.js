@@ -13,7 +13,7 @@ class PhotographerCard
         const wrapper = document.createElement('article')
 
         const photographerCard =`
-        <a class='photographer-card' href='./photographer.html?id=${this.photographer.id}'>
+        <a class='photographer-card' href='./photographer.html?id=${this.photographer.id}' aria-label="${this.photographer.name}">
             ${this.roundPicture()}
             <h2>${this.photographer.name}</h2>
         </a>
@@ -30,11 +30,11 @@ class PhotographerCard
     } 
 
     roundPicture(){
-        return `<img class='round-photographer-picture' width=200 height=200  src="${this.photographer.portrait}" alt="Portrait du photographe ${this.photographer.name}">`
+        return `<img class='round-photographer-picture' width=200 height=200  src="${this.photographer.portrait}" alt="${this.photographer.name}">`
     }
 
     smallRoundPicture(){
-        return `<img class='small-picture round-photographer-picture' src="${this.photographer.portrait}" alt="Portrait du photographe ${this.photographer.name}">`
+        return `<img class='small-picture round-photographer-picture' src="${this.photographer.portrait}" alt="${this.photographer.name}">`
     }
 
     infoPhotograph(){
@@ -53,7 +53,7 @@ class PhotographerCard
 
         const bannerPhotograph = `
             ${this.infoPhotograph()}
-            <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <button class="contact_button" onclick="displayModal()" aria-label='Contact Me'>Contactez-moi</button>
             ${this.roundPicture()}
         `
         wrapper.innerHTML = bannerPhotograph
