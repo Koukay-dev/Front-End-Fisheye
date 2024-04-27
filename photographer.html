@@ -19,12 +19,17 @@
         <main id="main">
             <section id="banner-photographer"></section>
             <div class="sort-picture-container">
-                <label for="sort-picture">Trier par</label>
-                <select name="sort-picture" id="sort-picture">
+                <span>Trier par</span>
+                <!-- <select name="sort-picture" id="sort-picture">
                     <option value="popularity">Popularité</option>
                     <option value="date">Date</option>
                     <option value="title">Titre</option>
-                </select>
+                </select> -->
+                <ul name="sort-picture" id="sort-picture">
+                    <li class="sort-selected" data-sort="popularity">Popularité<img src="assets/icons/arrow-white.svg"></li>
+                    <li data-sort="date">Date</li>
+                    <li data-sort="title">Titre</li>
+                </ul>
             </div>
             <section id="medias-thumbnail"></section>
         </main>
@@ -63,6 +68,7 @@
                 <img id="left-arrow" class="arrow" src="assets/icons/arrow.svg"  alt="">
             </section>
         </div>
+
         <!--API-->
         <script src="scripts/api/API.js"></script>
         <!-- Factory -->

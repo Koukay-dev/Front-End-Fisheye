@@ -86,12 +86,12 @@ class LightBox {
      * @param {string} elemName 
      */
     _switchMainMediaTo(elemName, media){
-        console.log(media)
         var newElem = document.createElement(elemName);
             newElem.id = this._mainMedia.id
             newElem.src = media.mediaUrl
             newElem.dataset.id = media.id
-            console.log(newElem)
+            if(elemName == 'video')
+                newElem.controls = true;
             this._mainMedia.replaceWith(newElem)
             this._mainMedia = document.getElementById('lightbox-picture')
     }

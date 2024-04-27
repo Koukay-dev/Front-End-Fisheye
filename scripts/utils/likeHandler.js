@@ -10,8 +10,8 @@ function handleLike(elem){
         nbLike += 1
         elem.dataset.liked = true
     }
-    updateTotalLike()
     likesCounter.innerText = nbLike
+    updateTotalLike()
 }
 
 
