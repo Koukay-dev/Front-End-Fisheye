@@ -46,9 +46,9 @@ class MediaCard {
 
     _likesDom(){
         return `
-        <div class='likes' onclick='handleLike(this)' data-liked='false'>
+        <div class='likes' onclick='handleLike(this)' data-liked='false' >
             <span>${this._media.likes}</span>
-            <img src="assets/icons/like-heart.svg" alt="icone en forme de coeur pour les likes">
+            <img src="assets/icons/like-heart.svg" alt="likes">
         </div>
         `
     }

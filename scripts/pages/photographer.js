@@ -38,7 +38,34 @@ class PhotographerApp {
         this.contactTitle.innerHTML += ` ${this.photographer.name}<br>` //modale contact
 
         this._sortPopularity()
+        this._addSortEvents()
+        
+    }
 
+    _initializeMedia() {
+        this.sectionMedias.innerHTML = ''
+        const lightbox = new LightBox()
+
+        this.photographerMedias.forEach((elem, index) => {
+            let media = new Media(
+                elem,
+                this.photographer.name,
+                index,
+                this.photographerMedias
+            )
+            let mediaThumbnail = new MediaCard(media).createThumbnail()
+            lightbox.addMedia(media)
+            this.sectionMedias.appendChild(mediaThumbnail)
+        })
+
+        const staticLikePrice = new StaticLikePrice(
+            this.photographer.price
+        ).createElem()
+
+        lightbox.init()
+    }
+
+    _addSortEvents(){
         this.sortSelectElem.forEach((li) => {
             li.addEventListener('click', () => {
                 var alreadySelectedElement = document
@@ -71,29 +98,6 @@ class PhotographerApp {
                 }
             })
         })
-    }
-
-    _initializeMedia() {
-        this.sectionMedias.innerHTML = ''
-        const lightbox = new LightBox()
-
-        this.photographerMedias.forEach((elem, index) => {
-            let media = new Media(
-                elem,
-                this.photographer.name,
-                index,
-                this.photographerMedias
-            )
-            let mediaThumbnail = new MediaCard(media).createThumbnail()
-            lightbox.addMedia(media)
-            this.sectionMedias.appendChild(mediaThumbnail)
-        })
-
-        const staticLikePrice = new StaticLikePrice(
-            this.photographer.price
-        ).createElem()
-
-        lightbox.init()
     }
 
     _sortPopularity() {

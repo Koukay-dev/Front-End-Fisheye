@@ -21,10 +21,9 @@
             <div class="sort-picture-container">
                 <span>Trier par</span>
                 <ul class="sort" id="sort-picture" aria-label="Order by">
-                    <!-- update les aria dans le js -->
-                    <li id="sort-picture-selected" role="button" aria-haspopup="listbox" aria-expanded="false">
+                    <li id="sort-picture-selected" aria-haspopup="true" aria-expanded="false">
                         <span data-sort="popularity" class="sort-picture-elem">Popularité</span><img src="assets/icons/arrow-white.svg" />
-                        <ul class="sort" role="listbox" aria-activedescendant="" aria-selected="false" aria-labelledby="sort-picture-label">
+                        <ul class="sort" role="listbox" aria-labelledby="sort-picture">
                             <li><span data-sort="date" class="sort-picture-elem">Date</span></li>
                             <li><span data-sort="title" class="sort-picture-elem">Titre</span></li>
                         </ul>
@@ -60,10 +59,12 @@
             </div>
         </div>
         <div id="lightbox-modal">
-            <section id="lightbox-main">
+            <section id="lightbox-main" aria-label="image closeup view">
                 <img
                     src="assets/icons/close-red.svg"
                     id="lightbox-close-button"
+                    alt="close dialog"
+                    role="button"
                 />
                 <img id="lightbox-picture" src="" />
                 <h3 id="lightbox-picture-title"></h3>
@@ -71,13 +72,15 @@
                     id="right-arrow"
                     class="arrow"
                     src="assets/icons/arrow.svg"
-                    alt=""
+                    alt="Next image"
+                    role="button"
                 />
                 <img
                     id="left-arrow"
                     class="arrow"
                     src="assets/icons/arrow.svg"
-                    alt=""
+                    alt="Previous image"
+                    role="button"
                 />
             </section>
         </div>

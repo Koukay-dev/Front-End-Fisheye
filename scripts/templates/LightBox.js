@@ -24,6 +24,13 @@ class LightBox {
         this._closeButton.addEventListener('click', () => this.closeLightbox())
         this._nextArrow.addEventListener('click', () => this.nextPicture())
         this._previousArrow.addEventListener('click', () => this.previousPicture())
+        document.addEventListener('keydown', (event) => { //evenement au clavier
+            if (event.key === 'ArrowLeft') {
+                this.previousPicture();
+            } else if (event.key === 'ArrowRight') {
+                this.nextPicture();
+            }
+        });
     }
 
     addMedia(media) {
@@ -41,24 +48,17 @@ class LightBox {
 
     previousPicture() {
         let actualIndex = this._findIndex()
-        console.log(actualIndex)
         let newIndex = actualIndex - 1 == -1 ? this.lenMediaList - 1 : actualIndex - 1
         this._updatePicture(this._mediaList[newIndex])
-        console.log('previous')
     }
 
     nextPicture() {
         let actualIndex = this._findIndex()
-        console.log(actualIndex)
         let newIndex = actualIndex + 1 == this.lenMediaList ? 0 : actualIndex + 1
-        console.log(newIndex)
         this._updatePicture(this._mediaList[newIndex])
-        console.log(this._mediaList[newIndex])
-        console.log('next')
     }
 
     _updatePicture(media){
-        console.log(media)
         const mediaTagName = this._currentTagName()
         if(media.mediaType == 'video' && mediaTagName == 'img'){
                 this._switchMainMediaTo('video', media)
@@ -69,6 +69,8 @@ class LightBox {
             this._mainMedia.dataset.id = media.id
         }
         this._pictureTitle.innerText = media.title
+        this._mainMedia.setAttribute("aria-label", media.title)
+
     }
 
     _findIndex(){
