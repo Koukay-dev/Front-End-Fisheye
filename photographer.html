@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8" />
@@ -22,10 +22,10 @@
                 <span>Trier par</span>
                 <ul class="sort" id="sort-picture" aria-label="Order by">
                     <li id="sort-picture-selected" aria-haspopup="true" aria-expanded="false">
-                        <span data-sort="popularity" class="sort-picture-elem">Popularité</span><img src="assets/icons/arrow-white.svg" />
-                        <ul class="sort" role="listbox" aria-labelledby="sort-picture">
-                            <li><span data-sort="date" class="sort-picture-elem">Date</span></li>
-                            <li><span data-sort="title" class="sort-picture-elem">Titre</span></li>
+                        <span data-sort="popularity" tabindex="0" role="button" class="sort-picture-elem">Popularité</span><img src="assets/icons/arrow-white.svg" alt="arrow"/>
+                        <ul class="sort" id="sort-picture-sous-liste" role="listbox" aria-labelledby="sort-picture">
+                            <li><span data-sort="date" tabindex="0" role="button" class="sort-picture-elem">Date</span></li>
+                            <li><span data-sort="title" tabindex="0" role="button" class="sort-picture-elem">Titre</span></li>
                         </ul>
                     </li>
                 </ul>
@@ -38,19 +38,19 @@
             <div class="modal">
                 <header>
                     <h2 id="contact-title">Contactez-moi</h2>
-                    <img src="assets/icons/close.svg" onclick="closeModal()" />
+                    <img src="assets/icons/close.svg" alt='close contact' onclick="closeModal()"/>
                 </header>
 
                 <form id="contact-form">
                     <div>
                         <label for="firstname">Prénom</label>
-                        <input type="text" name="firstname" />
-                        <label for="firstname">Nom</label>
-                        <input type="text" name="lastname" />
+                        <input type="text" name="firstname" title="firstname" placeholder="Firstname" />
+                        <label for="lastname">Nom</label>
+                        <input type="text" name="lastname" title="lastname" placeholder="Lastname" />
                         <label for="email">Email</label>
-                        <input type="email" name="email" />
+                        <input type="email" name="email" title="email" placeholder="Email" />
                         <label for="message">Votre message</label>
-                        <textarea name="message" cols="30" rows="10"></textarea>
+                        <textarea name="message" title="message" placeholder="Message" cols="30" rows="10"></textarea>
                     </div>
                     <button type="submit" class="contact_button">
                         Envoyer
@@ -66,7 +66,7 @@
                     alt="close dialog"
                     role="button"
                 />
-                <img id="lightbox-picture" src="" />
+                <img id="lightbox-picture" src="" alt="no picture"/>
                 <h3 id="lightbox-picture-title"></h3>
                 <img
                     id="right-arrow"

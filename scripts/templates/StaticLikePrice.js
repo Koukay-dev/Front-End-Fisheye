@@ -9,7 +9,7 @@ class StaticLikePrice {
     createElem() {
         console.log(this._likeNb)
         const elem = `
-            <span class='like-heart-wrapper'><span id='total-like'>${this._likeNb}</span><img src='/assets/icons/like-heart-black.svg'></span>
+            <span class='like-heart-wrapper'><span id='total-like'>${this._likeNb}</span><img src='/assets/icons/like-heart-black.svg' alt='likes'></span>
             <span>${this._price}</span>
         `
         this._wrapper.innerHTML = elem

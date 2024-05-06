@@ -9,9 +9,7 @@ class PhotographerApp {
         this.sectionMedias = document.getElementById('medias-thumbnail')
         this.contactTitle = document.getElementById('contact-title')
         this.sortSelect = document.getElementById('sort-picture')
-        this.sortSelectElem =
-            this.sortSelect.querySelectorAll('.sort-picture-elem')
-        console.log(this.sortSelectElem)
+        this.sortSelectElem = this.sortSelect.querySelectorAll('.sort-picture-elem')
 
         this.photographerMedias = ''
         this.photographer = ''
@@ -21,6 +19,7 @@ class PhotographerApp {
         this.id = params.get('id')
     }
 
+    // fonction principale qui va initialiser toutes les fonctions d'affichage et le tri des media 
     async main() {
         const photographerData = (
             await this.photographersApi.getPhotographs()
@@ -42,6 +41,7 @@ class PhotographerApp {
         
     }
 
+    //initialise les medias et la lightbox
     _initializeMedia() {
         this.sectionMedias.innerHTML = ''
         const lightbox = new LightBox()
@@ -66,9 +66,9 @@ class PhotographerApp {
     }
 
     _addSortEvents(){
-        this.sortSelectElem.forEach((li) => {
-            li.addEventListener('click', () => {
-                var alreadySelectedElement = document
+
+        const sortMedias = (li) => {
+            var alreadySelectedElement = document
                     .getElementById('sort-picture-selected')
                     .querySelector('.sort-picture-elem')
 
@@ -96,6 +96,17 @@ class PhotographerApp {
                             break
                     }
                 }
+        }
+
+        this.sortSelectElem.forEach((li) => {
+            li.addEventListener('click', () => {
+                sortMedias(li)
+            })
+            li.addEventListener('keypress', (event) => {
+                if(event.key=== 'Enter'){
+                  sortMedias(li)  
+                }
+                
             })
         })
     }

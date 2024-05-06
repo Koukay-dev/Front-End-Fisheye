@@ -1,5 +1,8 @@
 
-
+/**
+ * Gère les likes et leurs affichage
+ * @param {Node} elem 
+ */
 function handleLike(elem){
     var likesCounter = elem.querySelector('span')
     var nbLike = parseInt(likesCounter.innerText)
@@ -14,6 +17,7 @@ function handleLike(elem){
     updateTotalLike()
 }
 
+// Compatibilité au clavier pour les likes 
 function handleLikeKey(elem,event) {
     if (event.key === 'Enter') {
         handleLike(elem);
@@ -21,6 +25,8 @@ function handleLikeKey(elem,event) {
 }
 
 
+
+// Gère l'affichage du total de like
 function updateTotalLike(){
     const allLikeElems = document.querySelectorAll('.likes')
     const DOMtotalLike = document.querySelector('#total-like')

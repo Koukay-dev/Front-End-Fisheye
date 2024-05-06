@@ -53,7 +53,7 @@ class PhotographerCard
 
         const bannerPhotograph = `
             ${this.infoPhotograph()}
-            <button class="contact_button" onclick="displayModal()" aria-label='Contact Me'>Contactez-moi</button>
+            <button class="contact_button" onclick="displayModal()" onkeypress='displayModalKey(event)' tabindex='0' aria-label='Contact Me'>Contactez-moi</button>
             ${this.roundPicture()}
         `
         wrapper.innerHTML = bannerPhotograph
