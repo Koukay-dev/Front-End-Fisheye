@@ -32,11 +32,11 @@ class MediaCard {
 
         switch(this._media.mediaType){
             case 'image':
-                mediaDom = `<img class='thumb-img' width=350 height=300 src='${this._media.mediaUrl}'>`
+                mediaDom = `<img class='thumb-img' width=350 height=300 src='${this._media.mediaUrl}' alt='${this._media.title}' tabindex='0' role='button'>`
                 break
             case 'video':
                 mediaDom = `
-                <video class='thumb-img' width=350 height=300 controls>
+                <video class='thumb-img' width=350 height=300 controls role='button'>
                     <source src="${this._media.mediaUrl}" type="video/mp4" />
                 </video>`
                 break
@@ -46,7 +46,7 @@ class MediaCard {
 
     _likesDom(){
         return `
-        <div class='likes' onclick='handleLike(this)' data-liked='false' >
+        <div class='likes' onclick='handleLike(this)' tabindex='0' onkeydown="handleLikeKey(this,event)" data-liked='false' >
             <span>${this._media.likes}</span>
             <img src="assets/icons/like-heart.svg" alt="likes">
         </div>

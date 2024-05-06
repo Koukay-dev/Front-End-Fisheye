@@ -228,8 +228,6 @@ form input {
     justify-content: space-between;
 }
 
-.sort-open ul {
-}
 
 #medias-thumbnail {
     display: flex;
@@ -240,7 +238,7 @@ form input {
 
 .picture-card {
     overflow: hidden;
-
+    cursor:pointer;
     margin: 20px 47px;
     & .thumb-img {
         object-fit: cover;
@@ -295,7 +293,8 @@ form input {
     position: relative;
     & #lightbox-picture {
         width: 100%;
-        object-fit: cover;
+        max-height: 760px;
+        object-fit: contain;
         aspect-ratio: 21/18;
     }
     & .arrow,

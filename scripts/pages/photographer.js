@@ -58,7 +58,7 @@ class PhotographerApp {
             this.sectionMedias.appendChild(mediaThumbnail)
         })
 
-        const staticLikePrice = new StaticLikePrice(
+        new StaticLikePrice(
             this.photographer.price
         ).createElem()
 

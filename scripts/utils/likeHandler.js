@@ -14,6 +14,12 @@ function handleLike(elem){
     updateTotalLike()
 }
 
+function handleLikeKey(elem,event) {
+    if (event.key === 'Enter') {
+        handleLike(elem);
+    }
+}
+
 
 function updateTotalLike(){
     const allLikeElems = document.querySelectorAll('.likes')

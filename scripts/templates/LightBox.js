@@ -19,16 +19,27 @@ class LightBox {
                 cardImage.addEventListener('click', () => {
                     this.openLightbox(media)
                 })
+                cardImage.addEventListener('keydown', (event) => {
+                    if(event.key === 'Enter'){
+                       this.openLightbox(media) 
+                    }
+                })
             }
         })
         this._closeButton.addEventListener('click', () => this.closeLightbox())
         this._nextArrow.addEventListener('click', () => this.nextPicture())
         this._previousArrow.addEventListener('click', () => this.previousPicture())
         document.addEventListener('keydown', (event) => { //evenement au clavier
-            if (event.key === 'ArrowLeft') {
-                this.previousPicture();
-            } else if (event.key === 'ArrowRight') {
-                this.nextPicture();
+            switch(event.key){
+                case 'ArrowLeft':
+                    this.previousPicture()
+                    break
+                case 'ArrowRight':
+                    this.nextPicture()
+                    break
+                case 'Escape':
+                    this.closeLightbox()
+                    break;
             }
         });
     }
