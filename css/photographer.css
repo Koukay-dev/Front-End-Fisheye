@@ -214,6 +214,7 @@ form input {
         top: 100%;
         left: 0;
         padding: 0;
+        z-index:1;
         & > :nth-child(1) {
             border-top: solid 2px white;
             border-bottom: solid 2px white;
@@ -237,6 +238,7 @@ form input {
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom:40px;
 }
 
 .picture-card {

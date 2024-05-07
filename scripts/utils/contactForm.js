@@ -1,7 +1,9 @@
 //affiche la modale de contact 
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
-	modal.style.display = "block";
+    const modal = document.getElementById("contact_modal")
+	modal.style.display = "block"
+    const firstInput = modal.querySelector('input[name="firstname"]')
+    firstInput.focus()
     document.addEventListener('keydown', (event) => {
         if(event.key === 'Escape' && modal.style.display === 'block'){
             closeModal()

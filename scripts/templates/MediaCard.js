@@ -36,7 +36,7 @@ class MediaCard {
                 break
             case 'video':
                 mediaDom = `
-                <video class='thumb-img' width=350 height=300 controls role='button'>
+                <video class='thumb-img' width=350 height=300 role='button'>
                     <source src="${this._media.mediaUrl}" type="video/mp4" />
                 </video>`
                 break

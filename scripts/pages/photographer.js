@@ -14,6 +14,8 @@ class PhotographerApp {
         this.photographerMedias = ''
         this.photographer = ''
 
+        this.lightbox = null
+
         var url = window.location.href
         var params = new URLSearchParams(url.split('?')[1]) // peut etre faire une redirection si rien n'est trouvé
         this.id = params.get('id')
@@ -24,27 +26,42 @@ class PhotographerApp {
         const photographerData = (
             await this.photographersApi.getPhotographs()
         ).find((photograph) => photograph.id == this.id)
+        
+
         this.photographerMedias = (
             await this.photographersApi.getMedia()
         ).filter((media) => media.photographerId == this.id)
 
+
         this.photographer = new Photographer(photographerData)
+
         let bannerPhotograph = new PhotographerCard(
             this.photographer
         ).bannerPhotograph()
+
         this.sectionBannerPhotographer.appendChild(bannerPhotograph)
 
         this.contactTitle.innerHTML += ` ${this.photographer.name}<br>` //modale contact
 
-        this._sortPopularity()
+        this._sortPopularity() // Les sorts initialise les médias
         this._addSortEvents()
+        
+        new StaticLikePrice(
+            this.photographer.price
+        ).createElem()
         
     }
 
     //initialise les medias et la lightbox
     _initializeMedia() {
-        this.sectionMedias.innerHTML = ''
-        const lightbox = new LightBox()
+        if(this.lightbox === null){
+            this.lightbox = new LightBox
+        } else {
+           this.lightbox.resetMedia() // l'ordre est important ici 
+        }
+        
+
+        this.sectionMedias.innerHTML = ''        
 
         this.photographerMedias.forEach((elem, index) => {
             let media = new Media(
@@ -54,15 +71,11 @@ class PhotographerApp {
                 this.photographerMedias
             )
             let mediaThumbnail = new MediaCard(media).createThumbnail()
-            lightbox.addMedia(media)
+            this.lightbox.addMedia(media)
             this.sectionMedias.appendChild(mediaThumbnail)
         })
 
-        new StaticLikePrice(
-            this.photographer.price
-        ).createElem()
-
-        lightbox.init()
+        this.lightbox.init()
     }
 
     _addSortEvents(){
